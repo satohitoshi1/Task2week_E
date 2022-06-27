@@ -1,14 +1,14 @@
 import requests
 import time
 
-# 使わなそう X-Api-Key
+# X-Api-Key使わなそう
 # BS4いらなくなる罠
 
 
 def get_title_linkurl():
     base_url = (
-        "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty"  # 番号があるURL
-    )
+        "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty"
+    )  # 番号があるURL
     res = requests.get(base_url)  # 番号を取得
     dic = res.json()  # 番号を辞書化
 
@@ -24,13 +24,13 @@ def get_info(numbers):  # 空のリストに入れる関数つくる  # get_info
             f"https://hacker-news.firebaseio.com/v0/item/{n}.json?print=pretty"
         )  # 取得した番号でURL作成し情報取得
         dic = res.json()  # 情報を辞書化
-        title = dic["title"]  
+        title = dic["title"]
 
         if "url" in dic:
             url = dic["url"]
             print(f"'title': '{title}', 'link': '{url}'")
 
-        else:
+        else:  # link無しはじく
             print(f"'title': {title}")
 
         time.sleep(1)  # ここで1秒止まる
