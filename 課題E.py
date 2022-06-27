@@ -18,7 +18,7 @@ def get_title_linkurl():
     return numbers
 
 
-def get_info(numbers):  # 空のリストに入れる関数つくる  # get_infoあやしい
+def get_info(numbers):  # 空のリストに入れる関数つくる  # get_info
     for n in numbers:
         res = requests.get(
             f"https://hacker-news.firebaseio.com/v0/item/{n}.json?print=pretty"
