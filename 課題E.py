@@ -26,12 +26,12 @@ def get_info(numbers):  # 空のリストに入れる関数つくる  # get_info
         dic = res.json()  # 情報を辞書化
         title = dic["title"]
 
-        if "url" in dic:
+        if "url" in dic: # link有り
             url = dic["url"]
             print(f"'title': '{title}', 'link': '{url}'")
 
-        else:  # link無しはじく
-            print(f"'title': {title}")
+        else:  # link無し
+            print(f"'title': {title}, 'link': NONE")
 
         time.sleep(1)  # ここで1秒止まる
 
